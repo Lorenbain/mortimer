@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+	<head>
+		<meta http-equiv="Content-Type" content="Content-type:text/html; charset=utf-8" />	
+		<meta http-equiv="imagetoolbar" content="no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="Author" content="Alexander Interactive www.alexanderinteractive.com" />  
+		<meta name="Classification" content="" /> 
+		<meta name="revisit-after" content="30 days" />
+		<meta name="copyright" content="Copyright 2009 Alexander Interactive" />
+		<meta name="distribution" content="global" />
+		<meta name="language" content="English" /> 
+		<meta name="robots" content="noindex,nofollow" />
+    <title>mortimer</title>
+
+		<link href="/stylesheets/reset.css?1274280971" media="screen" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/base.css?1274280971" media="screen" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/interior.css?1274289458" media="screen" rel="stylesheet" type="text/css" />
+
+		<script src="/javascripts/prototype-min.js?1274280971" type="text/javascript"></script>
+<script src="/javascripts/application.js?1274280971" type="text/javascript"></script>
+		<script src="/javascripts/littlebox.js?1274290779" type="text/javascript"></script>
+<script src="/javascripts/slideopen.js?1274280971" type="text/javascript"></script>
+    
+  <script src="/javascripts/password_generator.js?1274290920" type="text/javascript"></script>
+
+
+		<link rel="shortcut icon" type="image/x-icon"  href="/img/favicon.ico" />
+	  </head>
+	  <body>
+	  
+		<!-- #container -->
+		<div id="container">
+			<!-- #wrapper -->
+			<div id="wrapper">
+				<!-- #header -->
+				<div id="header" class="clear">
+					<a href="/" id="logo">Mortimer</a>
+					
+					<!-- #nav_utility -->
+					<div id="nav_utility" class="clear">
+						<ul class="clear">
+							<li>Logged in as <em>lorenb</em></li>
+							<li class="last"><a href="/logout">Logout</a></li>
+						</ul>
+					</div>
+					<!-- /#nav_utility -->
+						
+				</div>
+				<!-- /#header -->
+          
+				<!-- #nav_main -->
+				<div id="nav_main" class="clear">
+					<ul class="clear">
+					
+						<li ><a href="/"><span>Passwords</span></a></li>
+<li ><a href="/users"><span>Users</span></a></li>
+
+					  
+					</ul>
+				</div>
+				<!-- /#nav_main -->
+		  
+				<!-- #content -->
+				<div id="content">
+					<!-- #content_main -->
+					<div id="content_main" class="clear">
+						
+
+<div id="content_body">
+<h1>Edit Entry</h1>
+	
+	<div id="edit_users">
+		<div class="tab_content active">
+			<form action="https://10.0.254.66:444/entries/9" method="post"><div style="margin:0;padding:0"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="ac900da889c6061f40b6ca13239d3837a354bf00" /></div>
+
+				<fieldset class="common">
+	<legend class="hidden"><span class="hidden">Create Entry Form</span></legend>
+	
+	<div class="field text">
+		<label for="entry_title">Title:</label>
+		<input id="entry_title" name="entry[title]" value="Desktop System" maxlength='100' tabindex="1"  size="20"/>
+	</div>
+	
+	<div class="field text">
+		<label for="username">Username:</label>
+		<input id="username" name="entry[username]" value="asdf" maxlength='110' tabindex="2" autocomplete="off"  size="20"/>
+	</div>
+	
+	<div class="field text">
+    <label for="password">Password:</label>  
+		<input id="password" type="password" name="entry[password]" value="" maxlength='40' tabindex="3" autocomplete="off"  size="20"/><br/>
+	</div>
+	
+	<div class="field text">
+		<label for="password_confirmation">Confirm Pwd:</label>
+		<input type="password" id="password_confirmation" name="entry[password_confirmation]" value="" maxlength='40' tabindex="4"  size="20"/>
+	</div>
+	
+	<div class="field text">
+		<label for="url">Url:</label>
+		<input id="url" name="entry[url]" value="" maxlength='110' tabindex="5"  size="20"/>
+	</div>
+	
+	<div class="field text">
+		<label for="notes">Notes:</label>
+		<textarea id="notes" name="entry[description]" cols="20" rows="30" tabindex="6"></textarea>
+	</div>
+	<div class="field">
+		
+		<label for="entry">Group:</label>
+		<select id="entry" name="entry[group_id]"  tabindex="7" >
+		  <option value="2">Base Technology</option>
+<option value="1" selected="selected">Base Technology - Network Services</option>
+<option value="3">Base Technology - Technical Team</option>
+<option value="1" selected="selected">Network Services</option>
+		</select>
+	
+	</div>
+</fieldset>
+
+
+				<div class="message">
+					<p><em>Note:</em> Leave password blank if you don't want to update it.</p>
+				</div>
+
+				<div class="buttons clear">
+					<button type="submit" class="btn_update">Update</button>
+					<a href="/" class="btn_cancel cancel">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- #sidebar -->
+<div id="sidebar">
+	<!-- .module -->
+	<div class="module">
+		<div id="menu" class="module_box">
+			<div class="module_content">
+				<ul class="listing_common">
+					<li><a class="icon genpass" href="javascript:void(0);" id="generate_password">Generate Password</a></li>
+								<li><a class="icon log"href="https://10.0.254.66:444//access_entries/?entry=9">View Audit</a></li>
+								
+						<li><a href="/entries/9" class="destroy icon remove" group_id="1" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'ac900da889c6061f40b6ca13239d3837a354bf00'); f.appendChild(s);f.submit(); };return false;">Delete this entry</a></li>
+
+			
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /.module -->
+</div>
+<!-- /#sidebar -->
+
+
+
+					</div>
+					<!-- /#content_main -->
+					<div id="content_bottom"><!-- --></div>
+				</div>
+				<!-- /#content -->
+				
+				<!-- #footer -->
+				<div id="footer" class="clear">
+					<!-- #footer_content -->
+					<div id="footer_content" class="clear">
+						<a href="http://www.alexanderinteractive.com/blog/2009/02/mortimer-a-rails-password-manager.html" rel="external">About Mortimer</a>
+						<a id="logo_ai" href="http://www.alexanderinteractive.com" rel="external" title="Developed by Alexander Interactive">Alexander Interactive</a>
+					</div>
+				</div>
+				<!-- /#footer -->
+
+			</div>
+			<!-- /#wrapper -->
+		</div>
+		<!-- /#container -->
+	</body>
+</html>

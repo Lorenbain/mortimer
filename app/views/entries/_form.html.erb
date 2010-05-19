@@ -3,32 +3,27 @@
 	
 	<div class="field text">
 		<label for="entry_title">Title:</label>
-		<input id="entry_title" name="entry[title]" value="<%= @entry.title %>" maxlength='100' tabindex="1" />
+		<input id="entry_title" name="entry[title]" value="<%= @entry.title %>" maxlength='100' tabindex="1"  size="20"/>
 	</div>
 	
 	<div class="field text">
 		<label for="username">Username:</label>
-		<input id="username" name="entry[username]" value="<%= @entry.username %>" maxlength='110' tabindex="2" autocomplete="off" />
+		<input id="username" name="entry[username]" value="<%= @entry.username %>" maxlength='110' tabindex="2" autocomplete="off"  size="20"/>
 	</div>
 	
 	<div class="field text">
-    <label for="password">Password <em>(<a href="javascript:void(0);" id="generate_password">Generate</a>)</em>:</label>  
-		<input id="password" type="password" name="entry[password]" value="<%= @entry.password %>" maxlength='40' tabindex="3" autocomplete="off" />
-	</div>
-	
-	<div class="field text">
-		<label for="password_confirmation">Confirm Password:</label>
-		<input type="password" id="password_confirmation" name="entry[password_confirmation]" value="<%= @entry.password_confirmation %>" maxlength='40' tabindex="4" />
+    <label for="password">Password:</label>  
+		<input id="password" type="text" name="entry[password]" value="<%= @entry.password %>" maxlength='40' tabindex="3" autocomplete="off"  size="20"/><br/>
 	</div>
 	
 	<div class="field text">
 		<label for="url">Url:</label>
-		<input id="url" name="entry[url]" value="<%= @entry.url %>" maxlength='110' tabindex="5" />
+		<input id="url" name="entry[url]" value="<%= @entry.url %>" maxlength='110' tabindex="5"  size="20"/>
 	</div>
 	
 	<div class="field text">
 		<label for="notes">Notes:</label>
-		<textarea id="notes" name="entry[description]" cols="30" rows="30" tabindex="6"><%= @entry.description %></textarea>
+		<textarea id="notes" name="entry[description]" cols="20" rows="30" tabindex="6"><%= @entry.description %></textarea>
 	</div>
 	<div class="field">
 	<% if current_user.is_admin == false  %>
@@ -36,7 +31,7 @@
 		<label for="entry">Group:<span class="fakeLabel"><%= @entry.group.title %></span></label>
 	<% else %>	
 		<label for="entry">Group:</label>
-		<select id="entry" name="entry[group_id]"  tabindex="7">
+		<select id="entry" name="entry[group_id]"  tabindex="7" >
 		  <%= options_for_select(@groups, @entry.group_id) %>
 		</select>
 	<%end%>

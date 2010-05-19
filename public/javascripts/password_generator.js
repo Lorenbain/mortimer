@@ -1,10 +1,10 @@
 var PasswordGenerator = function(generatorLink, inputElements) {
   this.generatorLink    = generatorLink;
   this.fieldsToPopulate = inputElements;
-  this.lowerAlpha       = "abcdefghijklmnopqrstuvwxyz".split("");
-  this.upperAlpha       = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  this.numbers          = "0123456789".split("");
-  this.alternates       = "!@#$%^&*".split("");
+  this.lowerAlpha       = "abcdefghijkmnopqrstuvwxyz".split("");
+  this.upperAlpha       = "ABCDEFGHIJKLMNPQRSTUVWXYZ".split("");
+  this.numbers          = "23456789".split("");
+  this.alternates       = "!@#$%^*".split("");
   this.passwordPool     = [this.lowerAlpha, this.upperAlpha, this.numbers, this.alternates];
 
   this.initialize();

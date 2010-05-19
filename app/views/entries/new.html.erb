@@ -3,13 +3,33 @@
 <% end %>
 
 <h1>New Entry</h1>
-
-<% form_tag entries_url do %>
-  <%= error_messages_for :entry %>
-  <%= render :partial => "form" %>
-	<div class="buttons clear">
-		<button type="submit" class="btn_create">Create</button>
-		<a href="<%= home_path %>" class="btn_cancel cancel">Cancel</a>
+<div id="content_body">
+	<div id="edit_user">
+		<div class="tab_content active">
+			<% form_tag entries_url do %>
+			  <%= error_messages_for :entry %>
+			  <%= render :partial => "form" %>
+				<div class="buttons clear">
+					<button type="submit" class="btn_create">Create</button>
+					<a href="<%= home_path %>" class="btn_cancel cancel">Cancel</a>
+				</div>
+			<% end %>
+		</div>
 	</div>
-<% end %>
-
+</div>
+<!-- #sidebar -->
+<div id="sidebar">
+	<!-- .module -->
+	<div class="module">
+		<div id="menu" class="module_box">
+			<div class="module_content">
+				<ul class="listing_common">
+					<li><a class="icon genpass" href="javascript:void(0);" id="generate_password">Generate Password</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /.module -->
+</div>
+<!-- /#sidebar -->
+	

@@ -31,7 +31,7 @@ Rails::Initializer.run do |config|
   # config.log_level = :debug
 
   # Use UTC by default.
-  config.time_zone = "UTC"
+  config.time_zone = "Mountain Time (US & Canada)"
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!

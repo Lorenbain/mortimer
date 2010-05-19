@@ -18,8 +18,8 @@ class Entry < ActiveRecord::Base
   validates_presence_of :username
 
   validates_presence_of :password,              :if => :password_updated?
-  validates_presence_of :password_confirmation, :if => :password_updated?
-  validates_confirmation_of :password,          :if => :password_updated?
+  #validates_presence_of :password_confirmation, :if => :password_updated?
+  #validates_confirmation_of :password,          :if => :password_updated?
   validates_length_of       :password, :within => 6..40, :if => :password_updated?
   
   validates_uniqueness_of :title, :scope => :group_id

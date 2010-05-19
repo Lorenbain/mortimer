@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
   before_filter :write_permissions_on_new,   :only => [:new, :create]
 
   # Make sure that the show command can only be executed via xhr.
-  verify :xhr => true, :only => :show, :add_flash => {:notice => "Sorry, Charile :)"}, :redirect_to => "/" 
+  #verify :xhr => true, :only => :show, :add_flash => {:notice => "Sorry, Charile :)"}, :redirect_to => "/" 
 
   # Find entries and get groups for the appropriate actions.
   before_filter :find_entry, :only => [:show, :edit, :update, :destroy]
@@ -31,10 +31,18 @@ class EntriesController < ApplicationController
       render :text => login_url, :status => 401
     else
       @entry.decrypt_attributes_for(current_user, session[:pwd])
-	  render :template => "entries/show", :layout => false
+	  log_access("R")
+	  
+	  if params['mode']=="popup"
+		render :template => "entries/showpopup", :layout=>false
+	  else
+		render :template => "entries/show"
+	  end
+	  
 	  
     end
     rescue AccessDenied, PermissionsError => exception 
+	  log_access("F")
       flash[:notice] = "You don't have access to that! Attempt logged."
       note_access_denied(exception)
       render :text => login_url, :status => 401
@@ -62,11 +70,13 @@ class EntriesController < ApplicationController
   # See before_filters for code. 
   def edit
     @entry.decrypt_attributes_for(current_user, session[:pwd])
+	log_access("R")
     @entry.password = nil # Don't want to show this on edit.
   end
   
   def update
     if @entry.update_attributes(params[:entry])
+	  log_access("W")
       redirect_to groups_url
       flash[:notice] = "Password entry updated."
     else
@@ -109,4 +119,12 @@ class EntriesController < ApplicationController
         session[:open_groups][group.id] = true
       end
     end
+	
+	def log_access(accesstype)
+	  @access_entry = AccessEntry.new
+	  @access_entry.entry = @entry.id
+	  @access_entry.accesstype = accesstype
+	  @access_entry.login = current_user.login
+	  @access_entry.save
+	end
 end

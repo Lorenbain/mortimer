@@ -1,23 +1,48 @@
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "password_generator" %>
 <% end %>
-<h1>Edit Entry<%= link_to("Delete this entry", entry_path(@entry), :group_id => @entry.group_id, :method => "delete", 
-					:class => "destroy icon remove", :confirm => "Are you sure?")%></h1>
 
-<%= error_messages_for :entry %>
+<div id="content_body">
+<h1>Edit Entry</h1>
+	<%= error_messages_for :entry %>
+	<div id="edit_user">
+		<div class="tab_content active noborder">
+			<% form_tag entry_url(@entry), :method => "put" do %>
 
-<% form_tag entry_url(@entry), :method => "put" do %>
+				<%= render :partial => "form" %>
 
-	<%= render :partial => "form" %>
+				<div class="message">
+					<p><em>Note:</em> Leave password blank if you don't want to update it.</p>
+				</div>
 
-	<div class="message">
-		<p><em>Note:</em> Leave password blank if you don't want to update it.</p>
+				<div class="buttons clear">
+					<button type="submit" class="btn_update">Update</button>
+					<a href="<%= home_path %>" class="btn_cancel cancel">Cancel</a>
+				</div>
+			<% end %>
+		</div>
 	</div>
+</div>
+<!-- #sidebar -->
+<div id="sidebar">
+	<!-- .module -->
+	<div class="module">
+		<div id="menu" class="module_box">
+			<div class="module_content">
+				<ul class="listing_common">
+					<li><a class="icon password" href="javascript:void(0);" id="generate_password">Generate Password</a></li>
+					<li><a class="icon log"href="<%=home_url%>/access_entries/?entry=<%=@entry.id%>">View Audit</a></li>
+					<li><%=link_to("Delete this entry", entry_path(@entry), :group_id => @entry.group_id, :method => "delete", 
+					:class => "destroy icon remove", :confirm => "Are you sure?")%></li>
 
-	<div class="buttons clear">
-		<button type="submit" class="btn_update">Update</button>
-		<a href="<%= home_path %>" class="btn_cancel cancel">Cancel</a>
+			
+					
+				</ul>
+			</div>
+		</div>
 	</div>
+	<!-- /.module -->
+</div>
+<!-- /#sidebar -->
 
-<% end %>
 

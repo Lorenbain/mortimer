@@ -8,7 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :settings
   map.resources :groups, :entries, :permissions
   map.resource  :session
-  
+  map.resources :access_entries
+
   map.home "/",
     :controller => "groups",
     :action     => "index"

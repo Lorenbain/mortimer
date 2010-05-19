@@ -1,0 +1,23 @@
+<p>
+  <b>Id:</b>
+  <%=h @access_entry.id %>
+</p>
+
+<p>
+  <b>Entry:</b>
+  <%=h @access_entry.entry %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @access_entry.type %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%=h @access_entry.login %>
+</p>
+
+
+<%= link_to 'Edit', edit_access_entry_path(@access_entry) %> |
+<%= link_to 'Back', access_entries_path %>

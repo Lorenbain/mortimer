@@ -1,45 +1,67 @@
-<!-- .overlay_content -->
-<div class="overlay_content">
-	<div id="boxmenu">
-		<h2>
-			<%= @entry.group.title + ": <span>" + truncate(@entry.title, 60) + "</span>" %>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "password_viewer" %>
+<% end %>
+
+<div id="content_body">
+	<h1>View Entry</h1>
+	<%= error_messages_for :entry %>
+	<fieldset class="common">
+		<div class="field text" >
+			<label for="username">Title:</label>
+			<span><%= @entry.title %></span>
+		</div>
 		
-			<% if @entry.allows_write_access_for?(current_user) %>
-			<em>(<a href="<%= edit_entry_url(@entry) %>">edit / delete</a>)</em>
-			<% end %>
-		</h2>
-	</div>
+		<div class="field text" >
+			<label for="username">Username:</label>
+			<span><%= @entry.username %></span>
+		</div>
 	
-	<dl class="clear">
-		<dt>Title:</dt>
-		<dd><%=h @entry.title %></dd>
-
-		<dt>Username:</dt>
-		<dd>
-		<% if @entry.username.size > 35 %>
-			<%= @entry.username[0..30] + "<br />" + @entry.username[30..-1]  %>
-		<%else%>
-			<%= @entry.username %>
-		<%end%>
-		</dd>
-
-		<dt>Password:</dt>
-    <dd id="password_container">
-      <a href="javascript:void(0);">View</a>
-    </dd>
-
-		<% unless @entry.url.blank? %>
-		<dt>Url:</dt>
-		<dd><a href="<%=h @entry.url %>" target="target-new"><%=h truncate(@entry.url, :length => 30) %></a></dd>
-		<% end %>
-
-		<% unless @entry.description.blank? %>
-		<dt>Notes:</dt>
-		<dd><%=h @entry.description %></dd>
-		<% end %>
+		<div class="field text clear" >
+			<label for="username">Password:</label>
+			<span id="password_container">
+				<a href="javascript:void(0);">View</a>
+			</span>
+		</div>
+					
+		<div class="field text clear" >
+			<label for="url">Url:</label>
+			<span><%= @entry.url %></span>
+		</div>
+	
+		<div class="field text clear" >
+			<label for="notes">Notes:</label>
+			<span><%= @entry.description %></span>
+		</div>
 		
-		<span class="hidden"><input value="<%= @entry.password %>"  id="hidden_password" class="hidden" /></span>
-	</dl>
+		<div class="field text clear" >
+			<label for="notes">Group:</label>
+			<span><%= @entry.group.title %></span>
+		</div>
+	</fieldset>
 
-	<p>[Ctrl-C] or [Cmd-C] will copy the password to the clipboard.<br/>Click outside the box to close.</p>
+	<div class="message">
+		<span class="hidden"><input value="<%= @entry.password %>"  id="hidden_password" class="hidden" /></span>
+		<p>[Ctrl-C] or [Cmd-C] will copy the password to the clipboard.</p>
+	</div>
 </div>
+
+<!-- #sidebar -->
+<div id="sidebar">
+	<!-- .module -->
+	<div class="module">
+		<div id="menu" class="module_box">
+			<div class="module_content">
+				<ul class="listing_common">
+					<li><a class="icon edit" href="<%= edit_entry_url(@entry.id)%>" id="generate_password">Edit Entry</a></li>
+						<li><a class="icon log" href="<%=home_url%>/access_entries/?entry=<%=@entry.id%>">View Audit</a></li>
+			
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /.module -->
+</div>
+<!-- /#sidebar -->
+
+
+

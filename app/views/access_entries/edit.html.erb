@@ -1,0 +1,28 @@
+<h1>Editing access_entry</h1>
+
+<% form_for(@access_entry) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :entry %><br />
+    <%= f.text_field :entry %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @access_entry %> |
+<%= link_to 'Back', access_entries_path %>
